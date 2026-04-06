@@ -492,9 +492,9 @@ const char QCameraParameters::KEY_QC_NOISE_REDUCTION_MODE_VALUES[] = "noise-redu
 const char QCameraParameters::KEY_TS_MAKEUP[] = "tsmakeup";
 const char QCameraParameters::KEY_TS_MAKEUP_WHITEN[] = "tsmakeup_whiten";
 const char QCameraParameters::KEY_TS_MAKEUP_CLEAN[] = "tsmakeup_clean";
-const char QCameraParameters::KEY_XM_MAKEUP[] = "xiaomi-still-beautify-values";
-const char QCameraParameters::KEY_XM_MAKEUP_WHITEN[] = "xiaomi-beauty-skin-color";
-const char QCameraParameters::KEY_XM_MAKEUP_CLEAN[] = "xiaomi-beauty-skin-smooth";
+const char QCameraParameters::KEY_XM_MAKEUP[] = "rakuten-still-beautify-values";
+const char QCameraParameters::KEY_XM_MAKEUP_WHITEN[] = "rakuten-beauty-skin-color";
+const char QCameraParameters::KEY_XM_MAKEUP_CLEAN[] = "rakuten-beauty-skin-smooth";
 #endif
 
 //KEY to share HFR batch size with video encoder.

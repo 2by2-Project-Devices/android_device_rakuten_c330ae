@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package co.aospa.dolby.xiaomi
+package co.aospa.dolby.rakuten
 
 import android.content.BroadcastReceiver
 import android.content.Context

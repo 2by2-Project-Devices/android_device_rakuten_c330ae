@@ -32,7 +32,7 @@
 #Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
 #SPDX-License-Identifier: BSD-3-Clause-Clear
 
-service vendor.thermal-hal /vendor/bin/hw/android.hardware.thermal-service.qti.xiaomi_mido
+service vendor.thermal-hal /vendor/bin/hw/android.hardware.thermal-service.qti.rakuten_c330ae
 	interface aidl android.hardware.thermal.IThermal/default
 	class hal
 	user root

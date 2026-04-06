@@ -55,11 +55,11 @@ qti_thermal_hal_cc_defaults {
 }
 
 cc_binary {
-	name: "android.hardware.thermal-service.qti.xiaomi_mido",
+	name: "android.hardware.thermal-service.qti.rakuten_c330ae",
 	defaults: ["qti_thermal_hal_defaults"],
 	relative_install_path: "hw",
-	init_rc: ["android.hardware.thermal-service.qti.xiaomi_mido.rc"],
-	vintf_fragments: ["android.hardware.thermal-service.qti.xiaomi_mido.xml"],
+	init_rc: ["android.hardware.thermal-service.qti.rakuten_c330ae.rc"],
+	vintf_fragments: ["android.hardware.thermal-service.qti.rakuten_c330ae.xml"],
 	vendor: true,
 	shared_libs: [
 		"libbase",

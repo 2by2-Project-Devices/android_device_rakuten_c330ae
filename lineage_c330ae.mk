@@ -19,25 +19,23 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 
-# Inherit from mido device
+# Inherit from c330ae device
 AB_OTA_UPDATER := false
-$(call inherit-product, device/xiaomi/mido/device.mk)
+$(call inherit-product, device/rakuten/c330ae/device.mk)
 
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := mido
-PRODUCT_NAME := lineage_mido
-PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := Redmi Note 4
-PRODUCT_MANUFACTURER := Xiaomi
-TARGET_VENDOR := Xiaomi
-BOARD_VENDOR := Xiaomi
+PRODUCT_DEVICE := c330ae
+PRODUCT_NAME := lineage_c330ae
+PRODUCT_BRAND := Rakuten
+PRODUCT_MODEL := C330
+PRODUCT_MANUFACTURER := TINNO
 
-PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+PRODUCT_GMS_CLIENTID_BASE := android-tinno
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="mido-user 7.0 NRD90M V11.0.2.0.NCFMIXM release-keys" \
-    BuildFingerprint="xiaomi/mido/mido:7.0/NRD90M/V11.0.2.0.NCFMIXM:user/release-keys" \
-    DeviceProduct=mido
+    BuildDesc="c330ae-user 9 PKQ1.190616.001 830 release-keys" \
+    BuildFingerprint="Rakuten/C330/C330:9/PKQ1.190616.001/830:user/release-keys" \
+    DeviceProduct=c330ae

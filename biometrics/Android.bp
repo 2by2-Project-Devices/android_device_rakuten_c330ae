@@ -1,8 +1,8 @@
 cc_binary {
-    name: "android.hardware.biometrics.fingerprint@2.3-service.xiaomi_mido",
+    name: "android.hardware.biometrics.fingerprint@2.3-service.rakuten_c330ae",
     defaults: ["hidl_defaults"],
-    init_rc: ["android.hardware.biometrics.fingerprint@2.3-service.xiaomi_mido.rc"],
-    vintf_fragments: ["android.hardware.biometrics.fingerprint@2.3-service.xiaomi_mido.xml"],
+    init_rc: ["android.hardware.biometrics.fingerprint@2.3-service.rakuten_c330ae.rc"],
+    vintf_fragments: ["android.hardware.biometrics.fingerprint@2.3-service.rakuten_c330ae.xml"],
     vendor: true,
     relative_install_path: "hw",
     srcs: [

@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package co.aospa.dolby.xiaomi.geq.ui
+package co.aospa.dolby.rakuten.geq.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
-import co.aospa.dolby.xiaomi.R
+import co.aospa.dolby.rakuten.R
 
 enum class PresetNameValidationError {
     NAME_EXISTS,

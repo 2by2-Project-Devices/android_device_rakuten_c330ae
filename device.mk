@@ -14,13 +14,13 @@
 # limitations under the License.
 #
 
-$(call inherit-product, vendor/xiaomi/mido/mido-vendor.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk)
+$(call inherit-product, vendor/rakuten/c330ae/c330ae-vendor.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
 # Add common definitions for Qualcomm
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
 
-TARGET_BOARD_PLATFORM := msm8953
+TARGET_BOARD_PLATFORM := msm8937
 TARGET_BOARD_SUFFIX := _64
 
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
@@ -44,7 +44,7 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     bootable/deprecated-ota \
-    hardware/xiaomi
+    hardware/rakuten
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -86,10 +86,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.print.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.print.xml \
     frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
 
-# ANT
-PRODUCT_PACKAGES += \
-    AntHalService
-
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@7.1-impl:32 \
@@ -97,14 +93,14 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.service \
     android.hardware.soundtrigger@2.3-impl:32 \
     audio.bluetooth.default \
-    audio.primary.msm8953:32 \
+    audio.primary.msm8937:32 \
     audio.r_submix.default \
     audio.usb.default \
     libaudio-resampler:32 \
     libqcomvisualizer:32 \
     libqcomvoiceprocessing:32 \
     libqcompostprocbundle:32 \
-    sound_trigger.primary.msm8953:32
+    sound_trigger.primary.msm8937:32
 
 # Audio features
 PRODUCT_PACKAGES += \
@@ -114,10 +110,10 @@ PRODUCT_PACKAGES += \
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
-    hardware/qcom-caf/msm8953/audio/configs/msm8953/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
-    hardware/qcom-caf/msm8953/audio/configs/msm8953/audio_tuning_mixer.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer.txt \
-    hardware/qcom-caf/msm8953/audio/configs/msm8953/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
-    hardware/qcom-caf/msm8953/audio/configs/msm8953/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml \
+    hardware/qcom-caf/msm8953/audio/configs/msm8937/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
+    hardware/qcom-caf/msm8953/audio/configs/msm8937/audio_tuning_mixer.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer.txt \
+    hardware/qcom-caf/msm8953/audio/configs/msm8937/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
+    hardware/qcom-caf/msm8953/audio/configs/msm8937/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml \
     $(LOCAL_PATH)/configs/audio/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml
 
 # Audio XML configuration files
@@ -136,14 +132,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio-impl
 
- # Boot animation
+# Boot animation
 TARGET_BOOTANIMATION_HALF_RES := true
 
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
-    camera.msm8953
+    camera.msm8937
 
 # Cgroup and task_profiles
 PRODUCT_COPY_FILES += \
@@ -164,7 +160,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
-    gralloc.msm8953 \
+    gralloc.msm8937 \
     hwcomposer.qcom \
     vendor.qti.hardware.memtrack-service
 
@@ -178,11 +174,11 @@ PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
 
 PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/configs/gpfspath_oem_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gpfspath_oem_config.xml
+    $(LOCAL_PATH)/configs/gpfspath_oem_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gpfspath_oem_config.xml
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.xiaomi_mido
+    android.hardware.biometrics.fingerprint@2.3-service.rakuten_c330ae
 
 # FM
 PRODUCT_PACKAGES += \
@@ -220,7 +216,7 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.qti_recovery
 
 # Init
-$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_mido)
+$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_c330ae)
 
 # Input
 PRODUCT_COPY_FILES += \
@@ -255,10 +251,6 @@ $(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class
 
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
-
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service.xiaomi_mido
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -306,12 +298,14 @@ PRODUCT_PACKAGES += \
     fstab.qcom.ramdisk \
     fstab.zram \
     init.goodix.sh \
+    init.msm.usb.configfs.rc \
     init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.parts.rc \
+    init.recovery.qcom.rc \
     init.target.rc \
     ueventd.qcom.rc
 
@@ -335,12 +329,10 @@ PRODUCT_PACKAGES += \
     qti-telephony-utils-prd \
     qti_telephony_utils.xml \
     qti_telephony_utils_prd.xml \
-    telephony-ext \
-    xiaomi-telephony-stub
+    telephony-ext
 
 PRODUCT_BOOT_JARS += \
-    telephony-ext \
-    xiaomi-telephony-stub
+    telephony-ext
 
 PRODUCT_PACKAGES += \
     CarrierConfigOverlay
@@ -372,11 +364,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
 
 PRODUCT_PACKAGES += \
-    android.hardware.thermal-service.qti.xiaomi_mido
-
-# Touch features
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.xiaomi_mido
+    android.hardware.thermal-service.qti.rakuten_c330ae
 
 # USB HAL
 PRODUCT_SOONG_NAMESPACES += \
