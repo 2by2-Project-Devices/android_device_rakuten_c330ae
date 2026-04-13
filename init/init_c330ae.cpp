@@ -36,29 +36,6 @@
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
-char const *heaptargetutilization;
-char const *heapminfree;
-char const *heapmaxfree;
-
-void check_device()
-{
-    struct sysinfo sys;
-
-    sysinfo(&sys);
-
-    if (sys.totalram > 2048ull * 1024 * 1024) {
-        // from phone-xhdpi-4096-dalvik-heap.mk
-        heaptargetutilization = "0.6";
-        heapminfree = "8m";
-        heapmaxfree = "16m";
-    } else {
-        // from phone-xhdpi-2048-dalvik-heap.mk
-        heaptargetutilization = "0.75";
-        heapminfree = "512k";
-        heapmaxfree = "8m";
-   }
-}
-
 void property_override(char const prop[], char const value[], bool add = true)
 {
     auto pi = (prop_info *) __system_property_find(prop);
@@ -82,13 +59,5 @@ void set_avoid_gfxaccel_config() {
 
 void vendor_load_properties()
 {
-    check_device();
     set_avoid_gfxaccel_config();
-
-    property_override("dalvik.vm.heapstartsize", "8m");
-    property_override("dalvik.vm.heapgrowthlimit", "192m");
-    property_override("dalvik.vm.heapsize", "512m");
-    property_override("dalvik.vm.heaptargetutilization", heaptargetutilization);
-    property_override("dalvik.vm.heapminfree", heapminfree);
-    property_override("dalvik.vm.heapmaxfree", heapmaxfree);
 }
