@@ -329,6 +329,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     RemovePackages
 
+# Regulatory info
+PRODUCT_PACKAGES += \
+    RegulatoryInfoOverlay
+
 # Telephony
 PRODUCT_PACKAGES += \
     extphonelib \

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The 2by2 Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="jp.project2by2.c330ae.RegulatoryInfoOverlay">
+    <application android:hasCode="false" />
+    <overlay android:targetPackage="com.android.settings"
+             android:isStatic="true"
+             android:priority="999" />
+</manifest>
