@@ -62,6 +62,11 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup()
         .replace_needed('libcrypto.so', 'libcrypto-v33.so')
         .binary_regex_replace(b'libprotobuf-cpp-lite-3.9.1.so', b'libprotobuf-cpp-full-3.9.1.so'),
+    (
+        'vendor/lib64/vendor.qti.esepowermanager@1.0.so',
+        'vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so',
+    ): blob_fixup()
+        .replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
 }  # fmt: skip
 
 # Define the module

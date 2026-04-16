@@ -1893,6 +1893,12 @@ vendor/etc/init/dpmQmiMgr.rc|1538743661a5c48c15cd105beaad20f72953885a
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|d9f1aa7f93b928f42499d613d20ccbc60f279097
 vendor/lib64/libdpmqmihal.so;DISABLE_DEPS|41eb89e66ba065c43a5eb79cd3c72cef0ee167aa
 
+# eSE Power Manager
+vendor/bin/hw/vendor.qti.esepowermanager@1.0-service
+vendor/etc/init/vendor.qti.esepowermanager@1.0-service.rc
+vendor/lib64/hw/vendor.qti.esepowermanager@1.0-impl.so
+vendor/lib64/vendor.qti.esepowermanager@1.0.so
+
 # NFC
 vendor/bin/hw/android.hardware.nfc@1.1-service.cxd22xx
 vendor/bin/nfc_sequencer
@@ -2278,6 +2284,15 @@ vendor/lib64/libqmi_csi.so;DISABLE_DEPS|6d22ed6353c791ea1804c195b92b02dc28a679c3
 vendor/lib64/libqmi_encdec.so;DISABLE_DEPS|8a365cf7472c187c02fa0649e09fee529ded7563
 vendor/lib64/libqmiservices.so;DISABLE_DEPS|2e259463cbeb329caec303b642ab4068c8d10be5
 vendor/lib64/libxml.so;DISABLE_DEPS|f9b20632e9fd324810caf865faea93e4ff505d91
+
+# QTEE Connector
+vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
+vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
+vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
+vendor/lib64/libGPTEE_vendor.so
+vendor/lib64/libGPQTEEC_vendor.so
+vendor/lib64/libQTEEConnector_vendor.so
+vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 
 # Qti Telephony framework - from FP3
 system_ext/framework/qti-telephony-common.jar|4c1b043536ab8ad9d156668d94b60bc86ffbe278
