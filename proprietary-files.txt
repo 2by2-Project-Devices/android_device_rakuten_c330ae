@@ -1899,6 +1899,9 @@ vendor/etc/init/vendor.qti.esepowermanager@1.0-service.rc
 vendor/lib64/hw/vendor.qti.esepowermanager@1.0-impl.so
 vendor/lib64/vendor.qti.esepowermanager@1.0.so
 
+# eUICC
+system/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED
+
 # NFC
 vendor/bin/hw/android.hardware.nfc@1.1-service.cxd22xx
 vendor/bin/nfc_sequencer

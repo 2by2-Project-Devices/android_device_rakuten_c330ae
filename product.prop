@@ -31,6 +31,9 @@ bluetooth.profile.sap.server.enabled?=true
 bluetooth.profile.ccp.server.enabled?=true
 bluetooth.profile.vcp.controller.enabled?=true
 
+# eSIM
+masterclear.allow_retain_esim_profiles_after_fdr=true
+
 # IMS
 ro.telephony.block_binder_thread_on_incoming_calls=false
 
