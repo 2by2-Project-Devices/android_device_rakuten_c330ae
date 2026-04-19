@@ -69,6 +69,9 @@ vendor.hw.fm.init=0
 # Filesystem
 fs_mgr.overlayfs.prefer_cache_backing_storage=true
 
+# Low-Ram
+ro.config.low_ram=true
+
 # Media
 av.debug.disable.pers.cache=1
 media.aac_51_output_enabled=true
