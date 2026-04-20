@@ -56,7 +56,6 @@ vendor/lib/rfsa/adsp/libscveT2T_skel.so;DISABLE_DEPS|91b9200dbb982abf0d6b4406682
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so;DISABLE_DEPS|b5c57fdf48447c68b6308fdcb167d0d21b5c56ed
 
 # Audio - from PAN
-vendor/lib/hw/sound_trigger.primary.msm8937.so;DISABLE_DEPS|2eda0c18601de3aafd6cdfda7f20d8411162db03
 vendor/lib/libacdb-fts.so;DISABLE_DEPS|679f4d3b189e56b01e0ec5ae2955d19f88b37655
 vendor/lib/libacdbloader.so;DISABLE_DEPS|f0d844e545e3904b5cf527b460078c198f9d53d9
 vendor/lib/libacdbrtac.so;DISABLE_DEPS|2fcc92c30d9f3335533453d466f7aee34db5b32e
