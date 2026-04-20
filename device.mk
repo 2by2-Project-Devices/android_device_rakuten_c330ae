@@ -130,7 +130,11 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth.audio-impl
+    android.hardware.bluetooth.audio-impl \
+    android.hardware.bluetooth@1.0.vendor \
+    vendor.qti.hardware.bluetooth_audio@2.0.vendor \
+    vendor.qti.hardware.btconfigstore@1.0.vendor \
+    vendor.qti.hardware.btconfigstore@2.0.vendor
 
 # Boot animation
 TARGET_BOOTANIMATION_HALF_RES := true
@@ -162,7 +166,9 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
     gralloc.msm8937 \
     hwcomposer.qcom \
-    vendor.qti.hardware.memtrack-service
+    vendor.qti.hardware.memtrack-service \
+    android.frameworks.sensorservice@1.0.vendor \
+    libtinyxml
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
@@ -171,7 +177,9 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm-service.clearkey
+    android.hardware.drm-service.clearkey \
+    android.hardware.drm@1.4.vendor \
+    libcrypto-v33
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gpfspath_oem_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gpfspath_oem_config.xml
@@ -262,6 +270,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 PRODUCT_PACKAGES += \
+    libavservices_minijail.vendor \
     libnbaio
 
 # NFC
@@ -291,6 +300,11 @@ PRODUCT_PACKAGES += \
     vendor_dsp_mountpoint \
     vendor_firmware_mnt_mountpoint
 
+# Perf
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.perf@2.2 \
+    vendor.qti.hardware.perf@2.2.vendor
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
@@ -307,6 +321,19 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/qti_whitelist.xml \
     $(LOCAL_PATH)/configs/permissions/system_ext-privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-qti.xml
+
+# QMI
+PRODUCT_PACKAGES += \
+    libjson \
+    libnetutils.vendor:64 \
+    libsqlite.vendor:64 \
+    libqti_vndfwk_detect \
+    libqti_vndfwk_detect.vendor \
+    libvndfwk_detect_jni.qti \
+    libvndfwk_detect_jni.qti.vendor
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -332,6 +359,23 @@ PRODUCT_PACKAGES += \
 # Regulatory info
 PRODUCT_PACKAGES += \
     RegulatoryInfoOverlay
+
+# RIL
+PRODUCT_PACKAGES += \
+    android.hardware.radio.config@1.2.vendor \
+    android.hardware.radio@1.4.vendor \
+    android.hardware.radio@1.5.vendor \
+    android.hardware.radio.deprecated@1.0.vendor \
+    android.hardware.secure_element@1.0.vendor \
+    android.hardware.secure_element@1.1.vendor \
+    android.hardware.secure_element@1.2.vendor \
+    libprotobuf-cpp-full-3.9.1-vendorcompat \
+    librmnetctl \
+    libxml2
+
+PRODUCT_PACKAGES += \
+    libnetutils.vendor \
+    android.system.net.netd@1.1.vendor
 
 # Telephony
 PRODUCT_PACKAGES += \
