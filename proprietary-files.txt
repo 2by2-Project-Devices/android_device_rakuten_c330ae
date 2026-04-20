@@ -226,6 +226,7 @@ vendor/lib/libjpegdmahw.so
 vendor/lib/libjpegehw.so
 vendor/lib/libMegviiFacepp.so
 vendor/lib/libmegface-new.so
+vendor/lib/libmm-qcamera.so;DISABLE_DEPS
 vendor/lib/libmmcamera2_c2d_module.so;DISABLE_CHECKELF
 vendor/lib/libmmcamera2_cpp_module.so;DISABLE_CHECKELF
 vendor/lib/libmmcamera2_frame_algorithm.so;DISABLE_CHECKELF
