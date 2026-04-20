@@ -55,27 +55,26 @@ vendor/lib/rfsa/adsp/libscveT2T_skel.so;DISABLE_DEPS|91b9200dbb982abf0d6b4406682
 # ANT - from PAN
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so;DISABLE_DEPS|b5c57fdf48447c68b6308fdcb167d0d21b5c56ed
 
-# Audio - from PAN
-vendor/lib/libacdb-fts.so;DISABLE_DEPS|679f4d3b189e56b01e0ec5ae2955d19f88b37655
-vendor/lib/libacdbloader.so;DISABLE_DEPS|f0d844e545e3904b5cf527b460078c198f9d53d9
-vendor/lib/libacdbrtac.so;DISABLE_DEPS|2fcc92c30d9f3335533453d466f7aee34db5b32e
-vendor/lib/libadiertac.so;DISABLE_DEPS|1f2d53c0727abd4ccda9da787e92a396993ccd1f
-vendor/lib/libadm.so;DISABLE_DEPS|a5e6c65b7133440b4550234db4454e4c81627f66
-vendor/lib/libadpcmdec.so;DISABLE_DEPS|7a38d6b28b27cf663681ad077614a03164418f91
-vendor/lib/libaudcal.so;DISABLE_DEPS|97776b794a73dc9e28a15e81dee91054b489bd23
-vendor/lib/libaudio_log_utils.so;DISABLE_DEPS|9c10e18c405733e409a6d4f21bc381d2f860582d
-vendor/lib/libaudioparsers.so;DISABLE_DEPS|a39f1f6e789547f63b7e2369d73b29876763d68d
-vendor/lib/libdrc.so;DISABLE_DEPS|303d67b5bfea162ae994d3817de317258035c42a
-vendor/lib/libgcs-calwrapper.so;DISABLE_DEPS|e7365d613ef0e3c49dece69a772fd1ae117be334
-vendor/lib/libgcs-ipc.so;DISABLE_DEPS|8d09a80af40b1a3cfa4d7346fb919c8d5d19cfad
-vendor/lib/libgcs-osal.so;DISABLE_DEPS|2fc9a8ac335c37b8cefc8dce0abca1a478f96f65
-vendor/lib/libgcs.so;DISABLE_DEPS|9019d1d300e5cf9f65c543cf553bacdce2591e98
-vendor/lib/libhdmipassthru.so;DISABLE_DEPS|166332b9e0956c5ae1ebb53fd282fab73aada8c3
-vendor/lib/libmulawdec.so;DISABLE_DEPS|d1c6a10365ab68c546388f1195ded70dd7c165d5
-vendor/lib/libqtigef.so;DISABLE_DEPS|fbb307c0da385bf09cbdef714e8fc1ecfc7ba6fd
-vendor/lib/libsmwrapper.so;DISABLE_DEPS|f0ee761c02c888e77d947bb87d162d9379bc1530
-vendor/lib/libsurround_3mic_proc.so;DISABLE_DEPS|84a4d84fcf567554fb5174fc6d41310d864e5f8e
-vendor/lib64/libaudioparsers.so;DISABLE_DEPS|1463c5ee0f2f040835386d9ccb4a4b010c5bdf58
+# Audio
+vendor/lib/libacdb-fts.so
+vendor/lib/libacdbloader.so
+vendor/lib/libacdbrtac.so
+vendor/lib/libadiertac.so
+vendor/lib/libadm.so
+vendor/lib/libadpcmdec.so
+vendor/lib/libaudcal.so
+vendor/lib/libaudio_log_utils.so
+vendor/lib/libaudioparsers.so
+vendor/lib/libdrc.so
+vendor/lib/libgcs-calwrapper.so
+vendor/lib/libgcs-ipc.so
+vendor/lib/libgcs-osal.so
+vendor/lib/libgcs.so
+vendor/lib/libmulawdec.so
+vendor/lib/libqtigef.so
+vendor/lib/libsmwrapper.so
+vendor/lib/libsurround_3mic_proc.so
+vendor/lib64/libaudioparsers.so
 
 # Audiosphere - from PAN
 system_ext/etc/permissions/audiosphere.xml|015ad7be4921039238bfa3d34d052d752453e49c
