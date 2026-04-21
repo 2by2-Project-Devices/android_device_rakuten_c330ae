@@ -59,10 +59,10 @@ ro.vendor.bluetooth.wipower=false
 persist.vendor.cne.feature=1
 
 # Dalvik
-dalvik.vm.heapminfree=4m
-dalvik.vm.heapstartsize=16m
-dalvik.vm.heapgrowthlimit=192m
-dalvik.vm.heapsize=512m
+dalvik.vm.heapminfree=2m
+dalvik.vm.heapstartsize=8m
+dalvik.vm.heapgrowthlimit=288m
+dalvik.vm.heapsize=768m
 dalvik.vm.heaptargetutilization=0.75
 dalvik.vm.heapmaxfree=8m
 
