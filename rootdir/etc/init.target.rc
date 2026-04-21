@@ -521,4 +521,15 @@ on property:sys.boot_completed=1
     write /dev/cpuset/background/cpus 0-3
     write /dev/cpuset/restricted/cpus 0-3
 
-
+on post-fs-data
+    # NFC support
+    mkdir /data/nfc 0770 nfc nfc
+    mkdir /data/vendor/nfc 0770 nfc nfc
+    mkdir /data/system/nfc 0770 nfc nfc
+    copy /system/etc/felica.cfg /data/system/nfc/felica.cfg
+    chown nfc system /data/system/nfc/felica.cfg
+    chmod 0660 /data/system/nfc/felica.cfg
+    mkdir /data/data/com.android.nfc/shared_prefs 0770 nfc nfc
+    copy /system/etc/NfcServicePrefs.xml /data/data/com.android.nfc/shared_prefs/NfcServicePrefs.xml
+    chown nfc nfc /data/data/com.android.nfc/shared_prefs/NfcServicePrefs.xml
+    chmod 0660 /data/data/com.android.nfc/shared_prefs/NfcServicePrefs.xml
