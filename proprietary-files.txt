@@ -1980,10 +1980,10 @@ vendor/lib64/libminksocket.so;DISABLE_DEPS|103f45603bef0d1fbf52ccdf8458dd31cabe3
 vendor/lib64/libxtwifi_server_protocol.so;DISABLE_DEPS|c5b777d2f47976354951c9f2d8ee6fa5e82fe225
 vendor/lib64/libxtwifi_server_protocol_uri_v3.so;DISABLE_DEPS|ae3a3bdcda27327409c5f93ffd47e5726b404b94
 
-# Gatekeeper (QTI) - from PAN
-vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti;DISABLE_DEPS|de1e8d026b16255040dbe6eb67faa73c9b656553
-vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc|74ff564ec413866644361401ef5cf8d55846ead5
-vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so;DISABLE_DEPS|881ee60c801961f2fb9dd766e0840370add4f506
+# Gatekeeper (QTI)
+vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
+vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
+vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
 # Graphics (Postprocessing) - mm-pp-dpps - from PAN
 vendor/bin/mm-pp-dpps;DISABLE_DEPS|798084a9ea98a808e768c430bbe199c2ad257ca1
