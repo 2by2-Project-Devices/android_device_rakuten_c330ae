@@ -340,10 +340,6 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
-# RemovePackages
-PRODUCT_PACKAGES += \
-    RemovePackages
-
 # Regulatory info
 PRODUCT_PACKAGES += \
     RegulatoryInfoOverlay
