@@ -3,5 +3,6 @@ flash boot
 flash recovery
 flash system
 flash vendor
+flash --apply-vbmeta vbmeta
 if-wipe erase cache
 if-wipe erase userdata
