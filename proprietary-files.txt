@@ -2151,13 +2151,16 @@ vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|
 # IRQ Balancer - from PAN
 vendor/bin/msm_irqbalance;DISABLE_DEPS|c0910fb319bb8287f176f26078241299455baad0
 
-# Keymaster (QTI) - from PAN
-vendor/bin/hw/android.hardware.keymaster@4.0-service-qti;DISABLE_DEPS|671fc714df3c229e9e6678db16e673b272225bcb
-vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc|c8999fb1bccbef81e6b362059e9a6ebd023de98f
-vendor/lib64/libkeymasterdeviceutils.so;DISABLE_DEPS|01b50edb4d6c804c31922b361b05705f264e0ff0
-vendor/lib64/libkeymasterutils.so;DISABLE_DEPS|db21b2fec8e5808c562665746d0394575004070b
-vendor/lib64/libqcbor.so;DISABLE_DEPS|df6a3f00d7d49e482e0ca2937f5bd708fba32ae6
-vendor/lib64/libqtikeymaster4.so;DISABLE_DEPS|f3bad3154d7e1f20710bf555ddd4a3090ce8262b
+# Keymaster (QTI)
+vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
+vendor/bin/hw/android.hardware.keymaster@4.0-service-qti
+vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc
+vendor/lib64/hw/android.hardware.keymaster@3.0-impl-qti.so
+vendor/lib64/hw/keystore.msm8937.so
+vendor/lib64/libkeymasterdeviceutils.so
+vendor/lib64/libkeymasterprovision.so
+vendor/lib64/libkeymasterutils.so
+vendor/lib64/libqtikeymaster4.so
 
 # Media - from PAN
 vendor/etc/seccomp_policy/mediacodec.policy|f1097f8e67ef20de89176cf2e9c4f5c91cb77897
