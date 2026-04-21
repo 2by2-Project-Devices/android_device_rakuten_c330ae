@@ -23,34 +23,24 @@ vendor/etc/acdbdata/MTP/msm8952-tasha-snd-card/MTP_WCD9335_Headset_cal.acdb
 vendor/etc/acdbdata/MTP/msm8952-tasha-snd-card/MTP_WCD9335_Speaker_cal.acdb
 vendor/etc/acdbdata/MTP/msm8952-tasha-snd-card/MTP_WCD9335_workspaceFile.qwsp
 
-# ADSP - from PAN
-vendor/bin/adsprpcd;DISABLE_DEPS|b736b00857d64e74a3b9be887215124d186f95d5
-vendor/bin/dspservice;DISABLE_DEPS|c7809e32581d5c6efac65a3a7689f43526c17bb8
-vendor/etc/init/vendor.qti.adsprpc-guestos-service.rc|8f0eb84d3eb5fc0f683ef7b975b75044d56f513e
-vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc|fbf2bb38ca6bdddf98c7123da9e1f263a4eec55f
-vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy|f060101b26d3674bb173e5fc95e118f56a8ac15d
-vendor/lib/libadsprpc.so;DISABLE_DEPS|5d784c9f1ff7845b04ecba1c2592aad29ff53f7b
-vendor/lib/libfastcvadsp_stub.so;DISABLE_DEPS|70772d0bc39617430e27a21f89fccd93cc757185
-vendor/lib/libfastcvopt.so;DISABLE_DEPS|151040b1e9a4d78e4a66654a2f09af6ffd6e679d
-vendor/lib/libsysmon_cdsp_skel.so;DISABLE_DEPS|ab1138e0e1de96977cff511c2f27b4ecd537664d
-vendor/lib/vendor.qti.hardware.dsp@1.0.so;DISABLE_DEPS|41bdb4d9eda88cebfbc3bc6db64ff875416dbf5a
-vendor/lib64/libadsp_default_listener.so;DISABLE_DEPS|0324e797f6fdd15680df7fdacc51f713e40b9806
-vendor/lib64/libadsprpc.so;DISABLE_DEPS|e1fe0a21169d116f6996070a097b530f758ceabd
-vendor/lib64/libsysmon_cdsp_skel.so;DISABLE_DEPS|e5ba4d173b0e09d736b16474ed2f57874cb91916
-vendor/lib64/vendor.qti.hardware.dsp@1.0.so;DISABLE_DEPS|5f30d9c5fff738e6194a36a5b93372fa32ec0471
+# ADSP
+vendor/bin/adsprpcd
+vendor/lib/libadsprpc.so
+vendor/lib/libfastcvadsp_stub.so
+vendor/lib/libfastcvopt.so
+vendor/lib64/libadsp_default_listener.so
+vendor/lib64/libadsprpc.so
 
 # ADSP Modules
 vendor/lib/rfsa/adsp/libFastRPC_AUE_Forward_skel.so
 vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_Qtc2_skel.so
 vendor/lib/rfsa/adsp/libscveBlobDescriptor_skel.so
-
-# ADSP Modules - from PAN
-vendor/lib/rfsa/adsp/libapps_mem_heap.so;DISABLE_DEPS|5c82ad9cfe3f30105d899e2a4e90cc7566f81252
-vendor/lib/rfsa/adsp/libdspCV_skel.so;DISABLE_DEPS|628985174b0088bed21c866d7984d23855e5e150
-vendor/lib/rfsa/adsp/libfastcvadsp.so;DISABLE_DEPS|9818625bfa018f517e32a8f4a1e7fb4b255e5049
-vendor/lib/rfsa/adsp/libfastcvadsp_skel.so;DISABLE_DEPS|1ff4a48009e88435d93fd2b9b0c5ea59cedbb4f7
-vendor/lib/rfsa/adsp/libscveObjectSegmentation_skel.so;DISABLE_DEPS|944169db3ac67056b92ef4f850f69346958370b5
-vendor/lib/rfsa/adsp/libscveT2T_skel.so;DISABLE_DEPS|91b9200dbb982abf0d6b440668252d892a616f66
+vendor/lib/rfsa/adsp/libapps_mem_heap.so
+vendor/lib/rfsa/adsp/libdspCV_skel.so
+vendor/lib/rfsa/adsp/libfastcvadsp.so
+vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
+vendor/lib/rfsa/adsp/libscveObjectSegmentation_skel.so
+vendor/lib/rfsa/adsp/libscveT2T_skel.so
 
 # ANT - from PAN
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so;DISABLE_DEPS|b5c57fdf48447c68b6308fdcb167d0d21b5c56ed
