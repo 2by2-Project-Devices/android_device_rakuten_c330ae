@@ -189,10 +189,6 @@ TARGET_BOARD_FASTBOOT_INFO_FILE := $(LOCAL_PATH)/fastboot-info.txt
 PRODUCT_PACKAGES += \
     fastbootd
 
-# FM
-PRODUCT_PACKAGES += \
-    RevampedFMRadio
-
 # Fwk-detect
 PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti.vendor
