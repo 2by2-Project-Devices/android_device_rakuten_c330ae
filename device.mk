@@ -300,6 +300,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
+# QSEECOMD
+PRODUCT_PACKAGES += \
+    vendor.display.config@1.0.vendor
+
 # QTI
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/qti_whitelist.xml \
@@ -400,7 +404,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl:64 \
-    android.hardware.sensors@1.0-service
+    android.hardware.sensors@1.0-service \
+    libpower.vendor
     
 # Speed profile services and wifi-service to reduce RAM and storage
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
