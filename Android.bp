@@ -4,6 +4,11 @@
 //
 
 soong_namespace {
+    imports: [
+        "hardware/qcom-caf/msm8953",
+        "vendor/qcom/opensource/display",
+        "vendor/rakuten/c330ae",
+    ],
 }
 
 install_symlink {
