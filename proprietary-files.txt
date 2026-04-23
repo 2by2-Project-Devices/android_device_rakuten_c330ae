@@ -206,6 +206,7 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile5.xml|f76c894f3c6d5b6ed35113a088dc3174c9
 vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml|14d136e7fcc682311757d3edc0b9d3eaeba11815
 
 # Camera
+vendor/lib/hw/camera.msm8937.so
 vendor/lib/libdepthmapwrapper.so
 vendor/lib/libflash_pmic.so
 vendor/lib/libhal_dbg.so
@@ -213,6 +214,7 @@ vendor/lib/libjpegdhw.so
 vendor/lib/libjpegdmahw.so
 vendor/lib/libjpegehw.so
 vendor/lib/libMegviiFacepp.so
+vendor/lib/libThrdPluginAdapter.so
 vendor/lib/libmegface-new.so
 vendor/lib/libmm-qcamera.so;DISABLE_DEPS
 vendor/lib/libmmcamera2_c2d_module.so;DISABLE_CHECKELF
@@ -265,6 +267,7 @@ vendor/lib/libmmcamera_imx498_sunwin_c330ae.so
 vendor/lib/libmmcamera_imx498_tsp_c330ae_eeprom.so
 vendor/lib/libmmcamera_imx499_sunwin_c330ae.so
 vendor/lib/libmmcamera_imx499_tsp_c330ae_eeprom.so
+vendor/lib/libmmcamera_interface.so;DISABLE_CHECKELF
 vendor/lib/libmmcamera_irs1645.so
 vendor/lib/libmmcamera_isp_abf40.so
 vendor/lib/libmmcamera_isp_bcc40.so
@@ -368,6 +371,9 @@ vendor/lib/libmmcamera_truly_cma481_eeprom.so
 vendor/lib/libmmcamera_truly_cmb433_eeprom.so
 vendor/lib/libmmcamera_tuning.so
 vendor/lib/libmmcamera_tuning_lookup.so
+vendor/lib/libmmjpeg_interface.so
+vendor/lib/libmmlib2d_interface.so
+vendor/lib/libqomx_core.so
 vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
@@ -415,6 +421,15 @@ vendor/lib/libactuator_lc898212xd_qc2002.so
 vendor/lib/libactuator_lc898217xc.so
 vendor/lib/libactuator_pseudo.so
 vendor/lib/libactuator_rohm_bu64243gwz.so
+
+# Camera arcsoft
+vendor/lib/libarcsoft_aiscenedetection.so
+vendor/lib/libarcsoft_beautyshot.so
+vendor/lib/libarcsoft_face_tracking.so
+vendor/lib/libarcsoft_gender_estimation.so
+vendor/lib/libarcsoft_high_dynamic_range.so
+vendor/lib/libarcsoft_low_light_shot.so
+vendor/lib/libarcsoft_singlecam_bokeh.so
 
 # Camera chromatix
 vendor/lib/libchromatix_csidtg_common.so
@@ -1843,6 +1858,21 @@ vendor/etc/camera/tinno_imx499_sunwin_c330ae.xml
 # Camera libts - from riva
 vendor/lib/libts_detected_face_hal.so;DISABLE_DEPS|d000a683dd5d2b8a16201e1ef6d68234d76d2f9f
 vendor/lib/libts_face_beautify_hal.so;DISABLE_DEPS|4cc684d316706d4645d6e06ef6a46e15f988067d
+
+# Camera plugin
+vendor/lib/libplugin_asddetect.so
+vendor/lib/libplugin_autobest.so
+vendor/lib/libplugin_beautyshot.so
+vendor/lib/libplugin_facedetectplus.so
+vendor/lib/libplugin_faceplugin.so;DISABLE_DEPS
+vendor/lib/libplugin_genderestimate.so
+vendor/lib/libplugin_hdr.so
+vendor/lib/libplugin_nightshot.so
+vendor/lib/libplugin_param.so
+vendor/lib/libplugin_picselfie.so
+vendor/lib/libplugin_statusdetect.so
+vendor/lib/libplugin_vidhance.so
+vendor/lib/libplugin_watermark.so
 
 # Charger
 vendor/bin/hvdcp_opti;DISABLE_DEPS

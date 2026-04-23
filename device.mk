@@ -141,8 +141,7 @@ TARGET_BOOTANIMATION_HALF_RES := true
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service \
-    camera.msm8937
+    android.hardware.camera.provider@2.4-service
 
 # Cgroup and task_profiles
 PRODUCT_COPY_FILES += \
