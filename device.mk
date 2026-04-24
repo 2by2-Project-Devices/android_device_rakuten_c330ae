@@ -159,6 +159,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.ir-service.lineage
 
+# Cryptfshw
+TARGET_EXCLUDE_CRYPTFSHW := true
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl:64 \
