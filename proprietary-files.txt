@@ -1874,6 +1874,10 @@ vendor/lib/libplugin_statusdetect.so
 vendor/lib/libplugin_vidhance.so
 vendor/lib/libplugin_watermark.so
 
+# Camera tinno
+vendor/lib/hw/vendor.tinno.camera.vendorimageeffect@1.0-impl.so
+vendor/lib/vendor.tinno.camera.vendorimageeffect@1.0.so
+
 # Charger
 vendor/bin/hvdcp_opti;DISABLE_DEPS
 
