@@ -523,4 +523,13 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>imsrtpservice</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>vendor.tinno.camera.vendorimageeffect</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IVendorImageeffect</name>
+            <instance>internal/0</instance>
+        </interface>
+    </hal>
 </manifest>
