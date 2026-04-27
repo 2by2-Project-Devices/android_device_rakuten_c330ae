@@ -5,6 +5,13 @@
 -->
 <compatibility-matrix version="2.0" type="framework">
     <hal format="hidl" optional="true">
+        <name>android.hardware.graphics.allocator</name>
+        <interface>
+            <name>IAllocator</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
         <name>vendor.tinno.camera.vendorimageeffect</name>
         <version>1.0</version>
         <interface>
