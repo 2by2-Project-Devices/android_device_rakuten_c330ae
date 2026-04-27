@@ -2541,4 +2541,4 @@ vendor/lib64/libcpion.so;DISABLE_DEPS|388b27050e97bdfdee0d98428f223611b761f252
 vendor/lib64/libhdcpsrm.so;DISABLE_DEPS|85c4b0f714b3946d94d32811d4c85ad2dd244d65
 vendor/lib64/liboemcrypto.so;DISABLE_DEPS|0ed2cd7b6d34d2043956a7643b22c0fc212282b1
 vendor/lib64/libwvhidl.so;DISABLE_DEPS|05ead6d529c5f035e02bec7f03cec6a05cdcdb2d
-vendor/lib64/mediadrm/libwvdrmengine.so;DISABLE_DEPS|f4ec15860f4dacfd6757ac0674f8a18a9bf23f51
+vendor/lib64/mediadrm/libwvdrmengine.so;DISABLE_DEPS|bd68d74f539fe40336eeb1e869de8ae3581839b4
