@@ -6,4 +6,12 @@
 runtime_resource_overlay {
     name: "RegulatoryInfoOverlay",
     product_specific: true,
+    required: ["component-overrides-regulatory-info.xml"],
+}
+
+prebuilt_etc {
+    name: "component-overrides-regulatory-info.xml",
+    src: "component-overrides-regulatory-info.xml",
+    sub_dir: "sysconfig",
+    product_specific: true,
 }
