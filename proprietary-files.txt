@@ -1922,8 +1922,8 @@ vendor/etc/init/vendor.qti.esepowermanager@1.0-service.rc
 vendor/lib64/hw/vendor.qti.esepowermanager@1.0-impl.so
 vendor/lib64/vendor.qti.esepowermanager@1.0.so
 
-# eUICC
-system/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED
+# eUICC - from FP5 D.2.1.656331786-gms
+system/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED|9fab80174db95e79a6cc3dad8cb37252678ac9d1
 
 # NFC
 vendor/bin/hw/android.hardware.nfc@1.1-service.cxd22xx
