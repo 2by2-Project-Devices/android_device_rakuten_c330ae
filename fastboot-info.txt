@@ -1,5 +1,6 @@
 version 1
 flash boot
+flash dtbo
 flash system
 flash vendor
 flash --apply-vbmeta vbmeta
