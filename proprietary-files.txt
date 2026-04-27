@@ -4,6 +4,7 @@
 # sweet Package version: qti/missi/missi:13/TKQ1.221114.001/V14.0.4.0.THGMIXM:user/release-keys
 # riva Package version: Xiaomi/riva/riva:8.1.0/OPM1.171019.026/V11.0.2.0.OCKMIXM:user/release-keys
 # umi Package version: umi-user 13 RKQ1.211001.001 V14.0.5.0.TJBMIXM release-keys
+# X3-KC_sprout Package version: KYOCERA/X3-KC/X3-KC_sprout:10/3.350MI.0334.a/3.350MI.0334.a:user/release-keys
 
 # ACDB
 vendor/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
@@ -1925,13 +1926,12 @@ vendor/lib64/vendor.qti.esepowermanager@1.0.so
 # eUICC - from FP5 D.2.1.656331786-gms
 system/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED|9fab80174db95e79a6cc3dad8cb37252678ac9d1
 
-# NFC
-vendor/bin/hw/android.hardware.nfc@1.1-service.cxd22xx
-vendor/bin/nfc_sequencer
-vendor/etc/init/android.hardware.nfc@1.1-service.cxd22xx.rc
-vendor/etc/libnfc-cxd-225x03120101.conf
-vendor/etc/libnfc-cxd22xx.conf
-vendor/etc/libnfc-nci.conf
+# NFC - from X3-KC_sprout
+vendor/bin/hw/android.hardware.nfc@1.2-service.cxd22xx|b596d641e2d1ca87c6c15d6f55f6255a5cd575c5
+vendor/etc/init/android.hardware.nfc@1.2-service.cxd22xx.rc|2ad1b8e45e6e8554c67c7b4c082b0914f30afd74
+vendor/etc/libnfc-cxd-224x02310011.conf|70d6df6fff4401ae18568170a6861f7209a0b93b
+vendor/etc/libnfc-cxd22xx.conf|cc8f9b972396f7b4c386d54dd33cb8b471ae63be
+vendor/etc/libnfc-nci.conf|ea2b34328888f0bfcafd42d2962f818e65fc3396
 
 # Felica
 system/app/FeliCaLock/FeliCaLock.apk;PRESIGNED
