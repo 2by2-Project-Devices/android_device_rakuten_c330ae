@@ -141,7 +141,8 @@ TARGET_BOOTANIMATION_HALF_RES := true
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service
+    android.hardware.camera.provider@2.4-service \
+    camera.msm8937
 
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0.vendor
