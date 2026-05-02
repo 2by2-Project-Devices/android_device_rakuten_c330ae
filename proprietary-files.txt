@@ -207,17 +207,14 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile5.xml|f76c894f3c6d5b6ed35113a088dc3174c9
 vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml|14d136e7fcc682311757d3edc0b9d3eaeba11815
 
 # Camera
-vendor/lib/hw/camera.msm8937.so
 vendor/lib/libdepthmapwrapper.so
 vendor/lib/libflash_pmic.so
-vendor/lib/libhal_dbg.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegdmahw.so
 vendor/lib/libjpegehw.so
 vendor/lib/libMegviiFacepp.so
 vendor/lib/libThrdPluginAdapter.so
 vendor/lib/libmegface-new.so
-vendor/lib/libmm-qcamera.so;DISABLE_DEPS
 vendor/lib/libmmcamera2_c2d_module.so;DISABLE_CHECKELF
 vendor/lib/libmmcamera2_cpp_module.so;DISABLE_CHECKELF
 vendor/lib/libmmcamera2_frame_algorithm.so;DISABLE_CHECKELF
@@ -268,7 +265,6 @@ vendor/lib/libmmcamera_imx498_sunwin_c330ae.so
 vendor/lib/libmmcamera_imx498_tsp_c330ae_eeprom.so
 vendor/lib/libmmcamera_imx499_sunwin_c330ae.so
 vendor/lib/libmmcamera_imx499_tsp_c330ae_eeprom.so
-vendor/lib/libmmcamera_interface.so;DISABLE_CHECKELF
 vendor/lib/libmmcamera_irs1645.so
 vendor/lib/libmmcamera_isp_abf40.so
 vendor/lib/libmmcamera_isp_bcc40.so
@@ -370,11 +366,9 @@ vendor/lib/libmmcamera_tintless_algo.so
 vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 vendor/lib/libmmcamera_truly_cma481_eeprom.so
 vendor/lib/libmmcamera_truly_cmb433_eeprom.so
-vendor/lib/libmmcamera_tuning.so
+vendor/lib/libmmcamera_tuning.so;DISABLE_DEPS
 vendor/lib/libmmcamera_tuning_lookup.so
-vendor/lib/libmmjpeg_interface.so
-vendor/lib/libmmlib2d_interface.so
-vendor/lib/libqomx_core.so
+vendor/lib/libmmlib2d_interface.so;DISABLE_DEPS
 vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
