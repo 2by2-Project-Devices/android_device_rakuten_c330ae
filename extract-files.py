@@ -68,6 +68,11 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so',
     ): blob_fixup()
         .replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
+    'vendor/lib/libmmqjpeg_codec.so': blob_fixup()
+        .binary_regex_replace(
+            b'\x04\xf1\xf0\x00\x02\xf0\x36\xfd\x04\xf1\xf4\x00\x02\xf0\x3a\xfd',
+            b'\x04\xf1\xf0\x00\x00\xbf\x00\xbf\x04\xf1\xf4\x00\x02\xf0\x3a\xfd'
+        )
 }  # fmt: skip
 
 # Define the module
