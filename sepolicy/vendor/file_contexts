@@ -47,6 +47,10 @@
 # MMC
 /sys/devices/platform/soc/7824900.sdhci/mmc_host/mmc0/mmc0:0001/block/mmcblk0/queue/discard_max_bytes u:object_r:sysfs_mmc_host:s0
 
+# NFC
+/dev/cxd224x-i2c                                                                u:object_r:nfc_device:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.nfc@1\.2-service\.cxd22xx		u:object_r:hal_nfc_default_exec:s0
+
 # Rild
 /(vendor|system/vendor)/radio/qcril_database/qcril.db			   u:object_r:rild_file:s0
 
