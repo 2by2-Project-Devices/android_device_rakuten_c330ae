@@ -2445,9 +2445,6 @@ vendor/lib64/libsensor1.so;DISABLE_DEPS
 vendor/lib64/libsensor_reg.so;DISABLE_DEPS
 vendor/lib64/sensors.ssc.so;DISABLE_DEPS
 
-# Sensors - from PAN
-vendor/etc/sensors/hals.conf|bf3677cbfa5ce5735662e8c259cb027969f65c87
-
 # Subsystem Restart - from FP3
 vendor/bin/ssr_diag;DISABLE_DEPS|281685bd5d28f76b4c31e66c2869de11af9f81fc
 vendor/bin/ssr_setup;DISABLE_DEPS|c3b2ac8ba1bb6f0ac9e8772009dfe336b2f15dad
