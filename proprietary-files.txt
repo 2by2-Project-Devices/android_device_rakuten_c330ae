@@ -2437,6 +2437,7 @@ vendor/bin/tftp_server;DISABLE_DEPS|36bc4fa70a1ee88e1920ba1051d81419d4a60d76
 vendor/etc/init/vendor.qti.tftp.rc|b27f188cbffba470a4510d50e46ff7c8446c22cb
 
 # Sensors
+vendor/bin/init.qcom.sensors.sh
 vendor/bin/sensors.qti;DISABLE_DEPS
 vendor/lib/libsensor1.so;DISABLE_DEPS
 vendor/lib64/libsensor1.so;DISABLE_DEPS
