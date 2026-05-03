@@ -117,6 +117,9 @@ namespace qcamera {
 
 #define MIN_DIM(dim1,dim2) ((dim1.width*dim1.height)>(dim2.width*dim2.height)?dim2:dim1)
 
+#define DIM_MAX_WIDTH 2304
+#define DIM_MAX_HEIGHT 1728
+
 /* Face rect indices */
 #define FACE_LEFT              0
 #define FACE_TOP               1
@@ -9259,8 +9262,10 @@ size_t QCamera3HardwareInterface::calcMaxJpegSize(uint32_t camera_id)
     for (size_t i = 0; i < count; i++) {
         temp_width = (size_t)gCamCapability[camera_id]->picture_sizes_tbl[i].width;
         temp_height = (size_t)gCamCapability[camera_id]->picture_sizes_tbl[i].height;
-        if (temp_width * temp_height > max_jpeg_size ) {
-            max_jpeg_size = temp_width * temp_height;
+        if (temp_width <= DIM_MAX_WIDTH && temp_height <= DIM_MAX_HEIGHT) {
+            if (temp_width * temp_height > max_jpeg_size ) {
+                max_jpeg_size = temp_width * temp_height;
+            }
         }
     }
 
@@ -9788,6 +9793,10 @@ int QCamera3HardwareInterface::initStaticMetadata(uint32_t cameraId)
             if (!gCamCapability[cameraId]->is_depth_sensor) {
                 for (size_t i = 0; i < MIN(MAX_SIZES_CNT,
                         gCamCapability[cameraId]->picture_sizes_tbl_cnt); i++) {
+                    if (gCamCapability[cameraId]->picture_sizes_tbl[i].width > DIM_MAX_WIDTH ||
+                            gCamCapability[cameraId]->picture_sizes_tbl[i].height > DIM_MAX_HEIGHT) {
+                        continue;
+                    }
                     addStreamConfig(available_stream_configs, scalar_formats[j],
                             gCamCapability[cameraId]->picture_sizes_tbl[i],
                             ANDROID_SCALER_AVAILABLE_STREAM_CONFIGURATIONS_OUTPUT);
@@ -9856,6 +9865,11 @@ int QCamera3HardwareInterface::initStaticMetadata(uint32_t cameraId)
         default:
             for (size_t i = 0; i < MIN(MAX_SIZES_CNT,
                     gCamCapability[cameraId]->picture_sizes_tbl_cnt); i++) {
+                if ((scalar_formats[j] == HAL_PIXEL_FORMAT_BLOB) &&
+                        (gCamCapability[cameraId]->picture_sizes_tbl[i].width > DIM_MAX_WIDTH ||
+                         gCamCapability[cameraId]->picture_sizes_tbl[i].height > DIM_MAX_HEIGHT)) {
+                    continue;
+                }
                 available_min_durations.add(scalar_formats[j]);
                 available_min_durations.add(gCamCapability[cameraId]->picture_sizes_tbl[i].width);
                 available_min_durations.add(gCamCapability[cameraId]->picture_sizes_tbl[i].height);
@@ -10516,6 +10530,10 @@ int QCamera3HardwareInterface::initStaticMetadata(uint32_t cameraId)
         if (stall_formats[j] == HAL_PIXEL_FORMAT_BLOB) {
             for (uint32_t i = 0; i < MIN(MAX_SIZES_CNT,
                     gCamCapability[cameraId]->picture_sizes_tbl_cnt); i++) {
+                if (gCamCapability[cameraId]->picture_sizes_tbl[i].width > DIM_MAX_WIDTH ||
+                        gCamCapability[cameraId]->picture_sizes_tbl[i].height > DIM_MAX_HEIGHT) {
+                    continue;
+                }
                 available_stall_durations.add(stall_formats[j]);
                 available_stall_durations.add(gCamCapability[cameraId]->picture_sizes_tbl[i].width);
                 available_stall_durations.add(gCamCapability[cameraId]->picture_sizes_tbl[i].height);
