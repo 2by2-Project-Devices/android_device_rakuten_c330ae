@@ -26,6 +26,9 @@ $(call inherit-product, device/rakuten/c330ae/device.mk)
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+# 2by2 stuff
+CUSTOM_PROCESSOR_INFO := Qualcomm Snapdragon 439
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := c330ae
 PRODUCT_NAME := lineage_c330ae
