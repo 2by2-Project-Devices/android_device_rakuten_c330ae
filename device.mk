@@ -175,10 +175,6 @@ PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor \
     libtinyxml
 
-# Device-specific settings
-PRODUCT_PACKAGES += \
-    XiaomiParts
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey \
