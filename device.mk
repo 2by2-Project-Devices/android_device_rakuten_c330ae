@@ -191,6 +191,9 @@ TARGET_BOARD_FASTBOOT_INFO_FILE := $(LOCAL_PATH)/fastboot-info.txt
 PRODUCT_PACKAGES += \
     fastbootd
 
+# Felica
+-include packages/apps/FelicaEnabler/device.mk
+
 # Fwk-detect
 PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti.vendor
