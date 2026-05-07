@@ -68,3 +68,6 @@
 
 # Vibrator
 /sys/module/qti_haptics/parameters/vmax_mv_override          u:object_r:sysfs_vibrator:s0
+
+# WiFi
+/vendor/bin/wcnss_service-c330ae                                            u:object_r:wcnss_service_exec:s0

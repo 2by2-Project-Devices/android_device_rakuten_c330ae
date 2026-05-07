@@ -235,7 +235,7 @@ on boot
     setprop vendor.usb.rmnet.inst.name "rmnet_bam_dmux"
     setprop vendor.usb.dpl.inst.name "dpl_bam_dmux"
 
-service wcnss-service /system/vendor/bin/wcnss_service
+service wcnss-service /system/vendor/bin/wcnss_service-c330ae
     class main
     user system
     group system wifi radio

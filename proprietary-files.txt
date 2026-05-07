@@ -2514,7 +2514,7 @@ vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
 vendor/lib64/libtime_genoff.so;DISABLE_DEPS|3f57de1aeb7aa113a0a579cebed85ab4405b9b49
 
 # WLAN
-vendor/bin/wcnss_service;DISABLE_DEPS;MODULE_SUFFIX=-c330ae;OVERRIDES=wcnss_service
+vendor/bin/wcnss_service:vendor/bin/wcnss_service-c330ae;DISABLE_DEPS
 
 # WLAN - from FP3
 vendor/bin/ptt_socket_app;DISABLE_DEPS|5176b59aa44ce0d6133eb4dfd970caf1e97635e6
