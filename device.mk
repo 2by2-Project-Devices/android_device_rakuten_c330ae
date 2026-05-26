@@ -192,7 +192,7 @@ PRODUCT_PACKAGES += \
     fastbootd
 
 # Felica
--include packages/apps/FelicaEnabler/device.mk
+-include packages/apps/FelicaService/device.mk
 
 # Fwk-detect
 PRODUCT_PACKAGES += \
