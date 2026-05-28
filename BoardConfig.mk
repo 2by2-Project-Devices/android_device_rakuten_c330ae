@@ -123,7 +123,7 @@ BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
 TARGET_PER_MGR_ENABLED := true
 
 # Power
-TARGET_TAP_TO_WAKE_NODE := "/sys/devices/platform/soc/78b7000.i2c/i2c-3/3-0038/fts_gesture_mode"
+TARGET_TAP_TO_WAKE_NODE := "/sys/bus/i2c/drivers/fts_ts/3-0038/fts_gesture_mode"
 TARGET_USES_INTERACTION_BOOST := true
 
 # Qualcomm
