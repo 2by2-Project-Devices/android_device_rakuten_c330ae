@@ -59,12 +59,6 @@ prebuilt_etc {
 }
 
 sh_binary {
-    name: "init.goodix.sh",
-    src: "etc/init.goodix.sh",
-    vendor: true,
-}
-
-sh_binary {
     name: "init.qcom.post_boot.sh",
     src: "etc/init.qcom.post_boot.sh",
     vendor: true,
