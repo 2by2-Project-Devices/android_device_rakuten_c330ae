@@ -93,6 +93,10 @@ on init
    write /dev/stune/top-app/schedtune.boost 10
    write /dev/stune/top-app/schedtune.prefer_idle 1
 
+    # DT2W
+    chown system system /sys/devices/platform/soc/78b7000.i2c/i2c-3/3-0038/fts_gesture_mode
+    chmod 0664 /sys/devices/platform/soc/78b7000.i2c/i2c-3/3-0038/fts_gesture_mode
+
 service qfp-daemon /system/vendor/bin/qfp-daemon
    class late_start
    user system
