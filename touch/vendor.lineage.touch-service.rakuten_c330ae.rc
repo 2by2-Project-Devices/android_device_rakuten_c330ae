@@ -1,0 +1,9 @@
+on init
+    # Glove Mode
+    chown system system /sys/devices/platform/soc/78b7000.i2c/i2c-3/3-0038/fts_glove_mode
+    chmod 0660 /sys/devices/platform/soc/78b7000.i2c/i2c-3/3-0038/fts_glove_mode
+
+service vendor.touch-hal /vendor/bin/hw/vendor.lineage.touch-service.rakuten_c330ae
+    class hal
+    user system
+    group system
