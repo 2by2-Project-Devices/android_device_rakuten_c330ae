@@ -170,6 +170,16 @@ PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor \
     libtinyxml
 
+PRODUCT_PACKAGES += \
+    android.frameworks.displayservice@1.0.vendor
+
+PRODUCT_PACKAGES += \
+    libdisplayconfig \
+    libgralloc.qti \
+    libqdMetaData \
+    vendor.display.config@1.11.vendor \
+    vendor.display.config@2.0.vendor
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey \

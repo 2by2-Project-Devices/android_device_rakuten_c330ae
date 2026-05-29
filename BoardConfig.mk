@@ -43,8 +43,14 @@ TARGET_VENDOR_PROP := $(DEVICE_PATH)/vendor.prop
 
 # Kernel
 TARGET_KERNEL_CONFIG := \
-    msm8937-perf_defconfig  \
-    c330ae.config
+    vendor/msm8937-perf_defconfig \
+    vendor/common.config \
+    vendor/debugfs.config \
+    vendor/msm-clk.config \
+    vendor/feature/android-12.config \
+    vendor/feature/erofs.config \
+    vendor/feature/lmkd.config \
+    vendor/tinno/c330ae.config
 TARGET_KERNEL_ARCH := arm64
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 loop.max_part=7 androidboot.usbconfigfs=true
@@ -53,8 +59,8 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-TARGET_KERNEL_SOURCE := kernel/rakuten/sdm439
-TARGET_KERNEL_VERSION := 4.9
+TARGET_KERNEL_SOURCE := kernel/rakuten/msm8937
+TARGET_KERNEL_VERSION := 4.19
 TARGET_KERNEL_ADDITIONAL_FLAGS := \
     DTC=$(shell pwd)/prebuilts/misc/$(HOST_OS)-x86/dtc/dtc
 
