@@ -6,3 +6,4 @@ flash vendor
 flash --apply-vbmeta vbmeta
 if-wipe erase cache
 if-wipe erase userdata
+if-wipe erase oem
