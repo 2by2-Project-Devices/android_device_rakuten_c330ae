@@ -55,6 +55,7 @@ debug.sf.recomputecrop=0
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 persist.hwc.mdpcomp.enable=true
+ro.config.avoid_gfx_accel=true
 ro.egl.blobcache.multifile=true
 ro.egl.blobcache.multifile_limit=33554432
 vendor.display.enable_default_color_mode=1
@@ -75,6 +76,7 @@ ro.config.low_ram=true
 # Media
 av.debug.disable.pers.cache=1
 media.aac_51_output_enabled=true
+media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 media.stagefright.thumbnail.prefer_hw_codecs=true
 media.msm8956hw=0
 mmp.enable.3g2=true
