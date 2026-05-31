@@ -28,6 +28,7 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # 2by2 stuff
 CUSTOM_PROCESSOR_INFO := Qualcomm Snapdragon 439
+TARGET_SETUPWIZARD_NO_ANIMATION := true
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := c330ae
