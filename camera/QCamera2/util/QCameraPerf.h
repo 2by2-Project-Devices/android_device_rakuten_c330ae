@@ -42,9 +42,12 @@ namespace qcamera {
 
 #define DEFAULT_PERF_LOCK_TIMEOUT_MS 1000
 #define PERF_LOCK_BOKEH_SNAP_TIMEOUT_MS 5000
+#define PERF_LOCK_POWERHINT_PREVIEW_ENCODE 4913
+#define PERF_LOCK_POWERHINT_HFR_ENCODE 4915
 
 typedef int32_t (*perfLockAcquire)(int, int, int[], int);
 typedef int32_t (*perfLockRelease)(int);
+typedef int32_t (*perf_hint)(int, char *, int, int);
 
 typedef enum {
     PERF_LOCK_OPEN_CAMERA,
@@ -85,6 +88,7 @@ public:
     bool acquirePerfLock(bool     forceReacquirePerfLock,
                          uint32_t timer = DEFAULT_PERF_LOCK_TIMEOUT_MS);
     void powerHintInternal(power_hint_t powerHint, bool enable);
+    bool perfHint(int hint_type, int duration);
 
 protected:
     QCameraPerfLock(PerfLockEnum perfLockType, QCameraPerfLockIntf *perfLockIntf);
@@ -113,6 +117,7 @@ private:
     uint32_t         mRefCount;
     perfLockAcquire  mPerfLockAcq;
     perfLockRelease  mPerfLockRel;
+    perf_hint         mPerfHint;
     power_module_t  *mPowerModule;
     void            *mDlHandle;
 
@@ -126,6 +131,7 @@ public:
 
     inline perfLockAcquire perfLockAcq() { return mPerfLockAcq; }
     inline perfLockRelease perfLockRel() { return mPerfLockRel; }
+    inline perf_hint perfHintIntf() { return mPerfHint; }
     inline power_module_t* powerHintIntf() { return mPowerModule; }
 };
 

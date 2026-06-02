@@ -14,7 +14,18 @@ LOCAL_C_INCLUDES += \
     $(IMGLIB_HEADER_PATH) \
     $(LOCAL_PATH)/inc \
     $(LOCAL_PATH)/../common \
-    $(LOCAL_PATH)/../mm-camera-interface/inc \
+    $(LOCAL_PATH)/../mm-camera-interface/inc
+
+ifneq ($(TARGET_KERNEL_VERSION),$(filter $(TARGET_KERNEL_VERSION),3.18 4.4 4.9))
+  ifneq ($(LIBION_HEADER_PATH_WRAPPER), )
+    include $(LIBION_HEADER_PATH_WRAPPER)
+    LOCAL_C_INCLUDES += $(LIBION_HEADER_PATHS)
+  else
+    LOCAL_C_INCLUDES += \
+            system/core/libion/kernel-headers \
+            system/core/libion/include
+  endif
+endif
 
 LOCAL_HEADER_LIBRARIES := libutils_headers
 LOCAL_HEADER_LIBRARIES += generated_kernel_headers
@@ -30,6 +41,9 @@ LOCAL_MODULE           := libmmlib2d_interface
 include $(SDCLANG_COMMON_DEFS)
 LOCAL_PRELINK_MODULE   := false
 LOCAL_SHARED_LIBRARIES := libdl libcutils liblog libmmcamera_interface
+ifneq ($(TARGET_KERNEL_VERSION),$(filter $(TARGET_KERNEL_VERSION),3.18 4.4 4.9))
+LOCAL_SHARED_LIBRARIES += libion
+endif
 LOCAL_MODULE_TAGS := optional
 LOCAL_VENDOR_MODULE := true
 

@@ -3466,12 +3466,17 @@ int32_t QCamera3YUVChannel::request(buffer_handle_t *buffer,
     }
     if(bIsMaster)
     {
+        QCamera3HardwareInterface* hal_obj = (QCamera3HardwareInterface*)mUserData;
         PpInfo ppInfo;
         memset(&ppInfo, 0, sizeof(ppInfo));
         ppInfo.frameNumber = frameNumber;
         ppInfo.offlinePpFlag = false;
         if (mBypass && !pInputBuffer ) {
-            ppInfo.offlinePpFlag = needsFramePostprocessing(metadata);
+            if (QCAMERA3_VENDOR_STREAM_CONFIGURATION_PP_DISABLED_MODE == hal_obj->mOpMode) {
+                ppInfo.offlinePpFlag = false;
+            } else {
+                ppInfo.offlinePpFlag = needsFramePostprocessing(metadata);
+            }
             ppInfo.output = buffer;
             mOfflinePpInfoList.push_back(ppInfo);
         }

@@ -2502,6 +2502,7 @@ typedef enum {
     CAM_INTF_PARM_BOKEH_MODE,
     CAM_INTF_META_USERZOOM,
     CAM_INTF_META_TUNING_PARAMS,
+    CAM_INTF_PARAM_COUNTER,
     CAM_INTF_PARM_MAX
 } cam_intf_parm_type_t;
 

@@ -275,6 +275,27 @@ QCameraPerfLockMgr::~QCameraPerfLockMgr()
     }
 }
 
+#ifdef SUPPORT_POWER_HINT_XML
+bool QCameraPerfLock::perfHint(int hint_type, int duration)
+{
+    bool ret = true;
+
+    if (mRefCount == 0) {
+        mHandle = (*mPerfLockIntf->perfHintIntf())(hint_type, NULL, duration, -1);
+        if (mHandle > 0) {
+            ++mRefCount;
+        } else {
+            LOGE("Failed to acquire perf_hint");
+            ret = false;
+        }
+    } else {
+        ++mRefCount;
+    }
+
+    return ret;
+}
+#endif
+
 
 /*===========================================================================
  * FUNCTION   : acquirePerfLock
@@ -524,6 +545,29 @@ bool QCameraPerfLock::acquirePerfLock(
     bool ret = true;
     Mutex::Autolock lock(mMutex);
 
+#ifdef SUPPORT_POWER_HINT_XML
+    if ((mPerfLockType == PERF_LOCK_POWERHINT_PREVIEW) ||
+            (mPerfLockType == PERF_LOCK_POWERHINT_ENCODE)) {
+        ret = perfHint(PERF_LOCK_POWERHINT_PREVIEW_ENCODE, 0);
+    } else if ((mRefCount == 0) || forceReaquirePerfLock) {
+        mHandle = (*mPerfLockIntf->perfLockAcq())(
+            mHandle, timer,
+            mPerfLockInfo[mPerfLockType].perfLockParams,
+            mPerfLockInfo[mPerfLockType].perfLockParamsCount);
+
+        if (mHandle > 0) {
+            ++mRefCount;
+            restartTimer(timer);
+            LOGD("perfLockHandle %d, updated refCount: %d, perfLockType: %d",
+                mHandle, mRefCount, mPerfLockType);
+        } else {
+            LOGE("Failed to acquire the perf lock");
+            ret = false;
+        }
+    } else {
+        ++mRefCount;
+    }
+#else
     if ((mPerfLockType == PERF_LOCK_POWERHINT_PREVIEW) ||
         (mPerfLockType == PERF_LOCK_POWERHINT_ENCODE)) {
         powerHintInternal(POWER_HINT_VIDEO_ENCODE, true);
@@ -553,6 +597,7 @@ bool QCameraPerfLock::acquirePerfLock(
     } else {
         LOGD("Perf lock already acquired, not re-aquiring");
     }
+#endif
 
     return ret;
 }
@@ -575,6 +620,19 @@ bool QCameraPerfLock::releasePerfLock()
     bool ret = true;
     Mutex::Autolock lock(mMutex);
 
+#ifdef SUPPORT_POWER_HINT_XML
+    if (mHandle > 0) {
+        if (--mRefCount == 0) {
+            int32_t rc = (*mPerfLockIntf->perfLockRel())(mHandle);
+            mHandle = 0;
+            if (rc < 0) {
+                ret = false;
+            }
+        }
+    } else {
+        LOGW("Perf lock %d either not acquired or already released", mPerfLockType);
+    }
+#else
     if ((mPerfLockType == PERF_LOCK_POWERHINT_PREVIEW) ||
         (mPerfLockType == PERF_LOCK_POWERHINT_ENCODE)) {
         powerHintInternal(POWER_HINT_VIDEO_ENCODE, false);
@@ -600,6 +658,7 @@ bool QCameraPerfLock::releasePerfLock()
     } else {
         LOGW("Perf lock %d either not acquired or already released", mPerfLockType);
     }
+#endif
 
     return ret;
 }
@@ -680,10 +739,18 @@ QCameraPerfLockIntf* QCameraPerfLockIntf::createSingleton()
                         perfLockAcquire pLockAcq = (perfLockAcquire)dlsym(dlHandle, "perf_lock_acq");
                         perfLockRelease pLockRel = (perfLockRelease)dlsym(dlHandle, "perf_lock_rel");
 
+#ifdef SUPPORT_POWER_HINT_XML
+                        perf_hint pPerfHint = (perf_hint)dlsym(dlHandle, "perf_hint");
+                        if (pLockAcq && pLockRel && pPerfHint) {
+#else
                         if (pLockAcq && pLockRel) {
+#endif
                             mInstance->mDlHandle    = dlHandle;
                             mInstance->mPerfLockAcq = pLockAcq;
                             mInstance->mPerfLockRel = pLockRel;
+#ifdef SUPPORT_POWER_HINT_XML
+                            mInstance->mPerfHint    = pPerfHint;
+#endif
                             error = false;
                         } else {
                             LOGE("Failed to link the symbols- perf_lock_acq, perf_lock_rel");

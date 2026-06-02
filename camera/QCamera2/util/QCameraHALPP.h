@@ -32,6 +32,7 @@
 
 // Camera dependencies
 #include "QCamera2HWI.h"
+#include "QCameraMem.h"
 #include "QCameraPprocManager.h"
 
 // STL dependencies
@@ -99,6 +100,5 @@ protected:
 }; // namespace qcamera
 
 #endif /* __QCAMERA_HAL_PP_H__ */
-
 
 

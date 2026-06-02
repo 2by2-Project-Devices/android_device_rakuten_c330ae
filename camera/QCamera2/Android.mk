@@ -103,6 +103,9 @@ endif
 ifeq ($(call is-platform-sdk-version-at-least,26),true)
 USE_DISPLAY_SERVICE := true
 LOCAL_CFLAGS += -DUSE_DISPLAY_SERVICE
+LOCAL_CFLAGS += -std=c++14 -std=gnu++1z
+else
+LOCAL_CFLAGS += -std=c++14 -std=gnu++1z
 endif
 
 #Android P onwards we use vendor prefix
@@ -124,6 +127,17 @@ LOCAL_C_INCLUDES := \
         $(call project-path-for,qcom-media)/libstagefrighthw \
         $(call project-path-for,qcom-media)/mm-core/inc \
         $(TARGET_OUT_HEADERS)/mm-camera-lib/cp/prebuilt
+
+ifneq ($(TARGET_KERNEL_VERSION),$(filter $(TARGET_KERNEL_VERSION),3.18 4.4 4.9))
+  ifneq ($(LIBION_HEADER_PATH_WRAPPER), )
+    include $(LIBION_HEADER_PATH_WRAPPER)
+    LOCAL_C_INCLUDES += $(LIBION_HEADER_PATHS)
+  else
+    LOCAL_C_INCLUDES += \
+            system/core/libion/kernel-headers \
+            system/core/libion/include
+  endif
+endif
 
 LOCAL_HEADER_LIBRARIES := media_plugin_headers
 LOCAL_HEADER_LIBRARIES += camera_common_headers
@@ -164,12 +178,19 @@ LOCAL_SHARED_LIBRARIES := liblog libhardware libutils libcutils libdl libsync
 LOCAL_SHARED_LIBRARIES += libmmcamera_interface libmmjpeg_interface libui libcamera_metadata
 LOCAL_SHARED_LIBRARIES += libqdMetaData libqservice libbinder
 LOCAL_SHARED_LIBRARIES += libcutils libdl libhal_dbg
+ifneq ($(TARGET_KERNEL_VERSION),$(filter $(TARGET_KERNEL_VERSION),3.18 4.4 4.9))
+LOCAL_SHARED_LIBRARIES += libion
+LOCAL_CFLAGS += -DVIDEO_EXPLICIT_UBWC
+endif
 ifeq ($(IS_QC_BOKEH_SUPPORTED),true)
 LOCAL_SHARED_LIBRARIES += libdualcameraddm
 LOCAL_CFLAGS += -DENABLE_QC_BOKEH
 endif
 ifeq ($(USE_DISPLAY_SERVICE),true)
-LOCAL_SHARED_LIBRARIES += android.frameworks.displayservice@1.0 libhidlbase libhidltransport
+LOCAL_SHARED_LIBRARIES += android.frameworks.displayservice@1.0 android.hidl.base@1.0 libhidlbase
+  ifneq ($(filter P% p% Q% q%,$(TARGET_PLATFORM_VERSION)),)
+    LOCAL_SHARED_LIBRARIES += libhidltransport
+  endif
 else
 LOCAL_SHARED_LIBRARIES += libgui
 endif
@@ -178,6 +199,20 @@ LOCAL_SHARED_LIBRARIES += libts_face_beautify_hal libts_detected_face_hal
 endif
 ifeq ($(TARGET_HAS_LOW_RAM), true)
 LOCAL_CFLAGS += -DHAS_LOW_RAM
+endif
+
+ifneq (,$(filter $(strip $(TARGET_KERNEL_VERSION)),4.14 4.19))
+    ifneq (,$(filter sdm660 msm8937 msm8953, $(TARGET_BOARD_PLATFORM)))
+        LOCAL_CFLAGS += -DSUPPORT_ONLY_HAL3
+    endif
+endif
+
+ifneq (,$(filter $(strip $(TARGET_KERNEL_VERSION)),4.14 4.19))
+ifneq (,$(filter sdm660 msm8937 msm8953, $(TARGET_BOARD_PLATFORM)))
+ifeq (,$(filter P% p% Q% q%,$(TARGET_PLATFORM_VERSION)))
+LOCAL_CFLAGS += -DSUPPORT_POWER_HINT_XML
+endif
+endif
 endif
 
 

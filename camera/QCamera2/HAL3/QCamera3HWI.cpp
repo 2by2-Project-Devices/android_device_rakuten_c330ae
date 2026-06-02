@@ -2519,19 +2519,25 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
             break;
             case HAL_PIXEL_FORMAT_YCbCr_420_888:
                 mStreamConfigInfo.type[mStreamConfigInfo.num_streams] = CAM_STREAM_TYPE_CALLBACK;
-                if (isOnEncoder(maxViewfinderSize, newStream->width, newStream->height)) {
-                    if (bUseCommonFeatureMask)
-                        mStreamConfigInfo.postprocess_mask[mStreamConfigInfo.num_streams] =
-                                commonFeatureMask;
-                    else
-                        mStreamConfigInfo.postprocess_mask[mStreamConfigInfo.num_streams] =
-                                CAM_QCOM_FEATURE_NONE;
-                } else {
+                if (mOpMode == QCAMERA3_VENDOR_STREAM_CONFIGURATION_PP_DISABLED_MODE) {
                     mStreamConfigInfo.postprocess_mask[mStreamConfigInfo.num_streams] =
-                            CAM_QCOM_FEATURE_PP_SUPERSET_HAL3;
-                }
-                if ((isZsl) && (zslStream == newStream)) {
-                    zsl_ppmask = mStreamConfigInfo.postprocess_mask[mStreamConfigInfo.num_streams];
+                            CAM_QCOM_FEATURE_NONE;
+                } else {
+                    if (isOnEncoder(maxViewfinderSize, newStream->width, newStream->height)) {
+                        if (bUseCommonFeatureMask)
+                            mStreamConfigInfo.postprocess_mask[mStreamConfigInfo.num_streams] =
+                                    commonFeatureMask;
+                        else
+                            mStreamConfigInfo.postprocess_mask[mStreamConfigInfo.num_streams] =
+                                    CAM_QCOM_FEATURE_NONE;
+                    } else {
+                        mStreamConfigInfo.postprocess_mask[mStreamConfigInfo.num_streams] =
+                                CAM_QCOM_FEATURE_PP_SUPERSET_HAL3;
+                    }
+                    if ((isZsl) && (zslStream == newStream)) {
+                        zsl_ppmask =
+                                mStreamConfigInfo.postprocess_mask[mStreamConfigInfo.num_streams];
+                    }
                 }
             break;
             case HAL_PIXEL_FORMAT_BLOB:
@@ -2916,6 +2922,10 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
         }
         break;
     case QCAMERA3_VENDOR_STREAM_CONFIGURATION_DISABLE_SUPPORT_STREAMS:
+        disableSupportStreams = true;
+        break;
+    case QCAMERA3_VENDOR_STREAM_CONFIGURATION_PP_DISABLED_MODE:
+        onlyRaw = false;
         disableSupportStreams = true;
         break;
     default:
@@ -5977,7 +5987,7 @@ no_error:
             mPerfLockMgr.acquirePerfLock(PERF_LOCK_TAKE_SNAPSHOT);
         }
     }
-    if (blob_request && mRawDumpChannel) {
+    if (blob_request && mRawDumpChannel && !m_bQuadraCfaRequest) {
         LOGD("Trigger Raw based on blob request if Raw dump is enabled");
         streamsArray.stream_request[streamsArray.num_streams].streamID =
             mRawDumpChannel->getStreamID(mRawDumpChannel->getStreamTypeMask());
@@ -8643,6 +8653,7 @@ void QCamera3HardwareInterface::cleanAndSortStreamInfo()
         if(((*it)->status) == INVALID){
             QCamera3Channel *channel = (QCamera3Channel*)(*it)->stream->priv;
             delete channel;
+            (*it)->stream->priv = NULL;
             free(*it);
             it = mStreamInfo.erase(it);
         } else {

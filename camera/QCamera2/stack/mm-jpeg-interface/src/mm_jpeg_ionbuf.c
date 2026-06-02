@@ -32,6 +32,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <string.h>
+#include <linux/dma-buf.h>
 #include <linux/msm_ion.h>
 #define MMAN_H <SYSTEM_HEADER_PREFIX/mman.h>
 #include MMAN_H
@@ -152,6 +153,15 @@ int buffer_deallocate(buffer_t *p_buffer)
 int buffer_invalidate(buffer_t *p_buffer)
 {
   int lrc = 0;
+#if defined(TARGET_ION_ABI_VERSION) && (TARGET_ION_ABI_VERSION >= 2)
+  struct dma_buf_sync sync;
+
+  memset(&sync, 0, sizeof(sync));
+  sync.flags = DMA_BUF_SYNC_START | DMA_BUF_SYNC_READ;
+  lrc = ioctl(p_buffer->ion_info_fd.fd, DMA_BUF_IOCTL_SYNC, &sync);
+  if (lrc < 0)
+    LOGW("DMA-BUF cache invalidate failed: %s\n", strerror(errno));
+#else
   struct ion_flush_data cache_inv_data;
   struct ion_custom_data custom_data;
 
@@ -167,6 +177,7 @@ int buffer_invalidate(buffer_t *p_buffer)
   lrc = ioctl(p_buffer->ion_fd, ION_IOC_CUSTOM, &custom_data);
   if (lrc < 0)
     LOGW("Cache Invalidate failed: %s\n", strerror(errno));
+#endif
 
   return lrc;
 }
@@ -186,6 +197,15 @@ int buffer_invalidate(buffer_t *p_buffer)
 int buffer_clean(buffer_t *p_buffer)
 {
   int lrc = 0;
+#if defined(TARGET_ION_ABI_VERSION) && (TARGET_ION_ABI_VERSION >= 2)
+  struct dma_buf_sync sync;
+
+  memset(&sync, 0, sizeof(sync));
+  sync.flags = DMA_BUF_SYNC_END | DMA_BUF_SYNC_WRITE;
+  lrc = ioctl(p_buffer->ion_info_fd.fd, DMA_BUF_IOCTL_SYNC, &sync);
+  if (lrc < 0)
+    LOGW("DMA-BUF cache clean failed: %s\n", strerror(errno));
+#else
   struct ion_flush_data cache_clean_data;
   struct ion_custom_data custom_data;
 
@@ -201,6 +221,7 @@ int buffer_clean(buffer_t *p_buffer)
   lrc = ioctl(p_buffer->ion_fd, ION_IOC_CUSTOM, &custom_data);
   if (lrc < 0)
     LOGW("Cache clean failed: %s\n", strerror(errno));
+#endif
 
   return lrc;
 }

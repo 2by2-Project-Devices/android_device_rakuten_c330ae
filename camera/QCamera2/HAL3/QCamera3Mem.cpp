@@ -31,6 +31,7 @@
 
 // System dependencies
 #include <fcntl.h>
+#include <linux/dma-buf.h>
 #define MMAN_H <SYSTEM_HEADER_PREFIX/mman.h>
 #include MMAN_H
 #include "gralloc_priv.h"
@@ -109,9 +110,15 @@ int QCamera3Memory::cacheOpsInternal(uint32_t index, unsigned int cmd, void *vad
     ATRACE_CALL();
     Mutex::Autolock lock(mLock);
 
+#if defined(TARGET_ION_ABI_VERSION) && (TARGET_ION_ABI_VERSION >= 2)
+    (void)vaddr;
+    struct dma_buf_sync sync;
+    int ret = OK;
+#else
     struct ion_flush_data cache_inv_data;
     struct ion_custom_data custom_data;
     int ret = OK;
+#endif
 
     if (MM_CAMERA_MAX_NUM_FRAMES <= index) {
         LOGE("index %d out of bound [0, %d)",
@@ -124,6 +131,21 @@ int QCamera3Memory::cacheOpsInternal(uint32_t index, unsigned int cmd, void *vad
         return BAD_INDEX;
     }
 
+#if defined(TARGET_ION_ABI_VERSION) && (TARGET_ION_ABI_VERSION >= 2)
+    memset(&sync, 0, sizeof(sync));
+    if (cmd == ION_IOC_CLEAN_CACHES) {
+        sync.flags = DMA_BUF_SYNC_END | DMA_BUF_SYNC_WRITE;
+    } else if (cmd == ION_IOC_INV_CACHES) {
+        sync.flags = DMA_BUF_SYNC_START | DMA_BUF_SYNC_READ;
+    } else {
+        sync.flags = DMA_BUF_SYNC_END | DMA_BUF_SYNC_RW;
+    }
+
+    ret = ioctl(mMemInfo[index].fd, DMA_BUF_IOCTL_SYNC, &sync);
+    if (ret < 0) {
+        LOGE("DMA-BUF cache operation failed: %s", strerror(errno));
+    }
+#else
     memset(&cache_inv_data, 0, sizeof(cache_inv_data));
     memset(&custom_data, 0, sizeof(custom_data));
     cache_inv_data.vaddr = vaddr;
@@ -140,6 +162,7 @@ int QCamera3Memory::cacheOpsInternal(uint32_t index, unsigned int cmd, void *vad
     ret = ioctl(mMemInfo[index].main_ion_fd, ION_IOC_CUSTOM, &custom_data);
     if (ret < 0)
         LOGE("Cache Invalidate failed: %s\n", strerror(errno));
+#endif
 
     return ret;
 }

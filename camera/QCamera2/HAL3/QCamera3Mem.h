@@ -31,8 +31,18 @@
 #define __QCAMERA3HWI_MEM_H__
 
 // System dependencies
+#include <linux/ion.h>
 #include <linux/msm_ion.h>
 #include <utils/Mutex.h>
+
+#ifndef ION_IOC_CLEAN_CACHES
+#define ION_IOC_CLEAN_CACHES 0
+#define ION_IOC_INV_CACHES 1
+#define ION_IOC_CLEAN_INV_CACHES 2
+#endif
+#ifndef ION_IOMMU_HEAP_ID
+#define ION_IOMMU_HEAP_ID ION_SYSTEM_HEAP_ID
+#endif
 
 // Camera dependencies
 #include "hardware/camera3.h"

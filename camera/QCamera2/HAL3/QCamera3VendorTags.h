@@ -455,7 +455,10 @@ typedef enum {
     QCAMERA3_VENDOR_STREAM_CONFIGURATION_RAW_ONLY_MODE = 0x8000,
 
     /* Disables all support streams for non raw mode configurations. */
-    QCAMERA3_VENDOR_STREAM_CONFIGURATION_DISABLE_SUPPORT_STREAMS = 0x8001
+    QCAMERA3_VENDOR_STREAM_CONFIGURATION_DISABLE_SUPPORT_STREAMS = 0x8001,
+
+    /* Disables post-processing on YUV streams for low-overhead callbacks. */
+    QCAMERA3_VENDOR_STREAM_CONFIGURATION_PP_DISABLED_MODE = 0x8004
 } QCamera3VendorStreamConfiguration;
 
 class QCamera3VendorTags {
