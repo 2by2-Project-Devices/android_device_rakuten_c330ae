@@ -87,9 +87,6 @@ drm.service.enabled=true
 # Fastbootd
 ro.fastbootd.available=true
 
-# Frp
-ro.frp.pst=/dev/block/bootdevice/by-name/config
-
 # HEH filename encryption is being dropped
 ro.crypto.volume.filenames_mode=aes-256-cts
 
