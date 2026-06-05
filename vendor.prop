@@ -90,6 +90,9 @@ ro.fastbootd.available=true
 # HEH filename encryption is being dropped
 ro.crypto.volume.filenames_mode=aes-256-cts
 
+# HW timeout multiplier
+ro.hw_timeout_multiplier=6
+
 # Media
 vendor.vidc.disable.split.mode=1
 
