@@ -11,7 +11,7 @@
 /dev/block/by-name/system                    /system            ext4    ro,barrier=1,discard                        wait,avb,first_stage_mount
 /dev/block/by-name/vendor                    /vendor            ext4    ro,barrier=1,discard                        wait,avb,first_stage_mount
 /dev/block/by-name/oem                       /metadata          ext4    nosuid,nodev,noatime,discard,data=journal,commit=1                wait,check,formattable,first_stage_mount,check,metadata_csum
-/dev/block/bootdevice/by-name/userdata       /data              ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc,discard  wait,fileencryption=aes-256-xts:aes-256-cts,quota,reservedsize=128M,resize
+/dev/block/bootdevice/by-name/userdata       /data              ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc,discard  wait,fileencryption=aes-256-xts:aes-256-cts:v2,metadata_encryption=aes-256-xts,quota,reservedsize=128M,resize
 /devices/soc/7864900.sdhci/mmc_host*         /storage/sdcard1   vfat    nosuid,nodev                                wait,voldmanaged=sdcard1:auto,noemulatedsd
 /devices/platform/soc/7864900.sdhci/mmc_host*         /storage/sdcard1   vfat    nosuid,nodev                                wait,voldmanaged=sdcard1:auto,noemulatedsd
 /dev/block/bootdevice/by-name/config         /frp               emmc    defaults                                    defaults

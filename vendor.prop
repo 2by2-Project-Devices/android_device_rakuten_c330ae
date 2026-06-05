@@ -58,6 +58,10 @@ ro.vendor.bluetooth.wipower=false
 # Cne
 persist.vendor.cne.feature=1
 
+# Crypto
+ro.crypto.dm_default_key.options_format.version=2
+ro.crypto.volume.filenames_mode=aes-256-cts
+
 # Dalvik
 dalvik.vm.heapminfree=2m
 dalvik.vm.heapstartsize=8m
@@ -86,9 +90,6 @@ drm.service.enabled=true
 
 # Fastbootd
 ro.fastbootd.available=true
-
-# HEH filename encryption is being dropped
-ro.crypto.volume.filenames_mode=aes-256-cts
 
 # HW timeout multiplier
 ro.hw_timeout_multiplier=6
