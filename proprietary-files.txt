@@ -212,9 +212,7 @@ vendor/lib/libflash_pmic.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegdmahw.so
 vendor/lib/libjpegehw.so
-vendor/lib/libMegviiFacepp.so
-vendor/lib/libThrdPluginAdapter.so
-vendor/lib/libmegface-new.so
+vendor/lib/libThrdPluginAdapter.so;DISABLE_DEPS
 vendor/lib/libmmcamera2_c2d_module.so;DISABLE_CHECKELF
 vendor/lib/libmmcamera2_cpp_module.so;DISABLE_CHECKELF
 vendor/lib/libmmcamera2_frame_algorithm.so;DISABLE_CHECKELF
@@ -379,8 +377,6 @@ vendor/lib/libqomx_jpegenc.so
 vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libremosaic_daemon.so
 vendor/lib/libvideoutils.so
-vendor/lib64/libMegviiFacepp.so
-vendor/lib64/libmegface-new.so
 vendor/lib64/libmmcamera2_frame_algorithm.so;DISABLE_CHECKELF
 vendor/lib64/libmmcamera2_is.so;DISABLE_CHECKELF
 vendor/lib64/libmmcamera2_q3a_core.so;DISABLE_CHECKELF
@@ -1858,7 +1854,7 @@ vendor/lib/libts_face_beautify_hal.so;DISABLE_DEPS|4cc684d316706d4645d6e06ef6a46
 vendor/lib/libplugin_asddetect.so
 vendor/lib/libplugin_autobest.so
 vendor/lib/libplugin_beautyshot.so
-vendor/lib/libplugin_facedetectplus.so
+vendor/lib/libplugin_facedetectplus.so;DISABLE_DEPS
 vendor/lib/libplugin_faceplugin.so;DISABLE_DEPS
 vendor/lib/libplugin_genderestimate.so
 vendor/lib/libplugin_hdr.so
