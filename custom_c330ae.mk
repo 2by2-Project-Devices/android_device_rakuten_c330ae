@@ -23,16 +23,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 AB_OTA_UPDATER := false
 $(call inherit-product, device/rakuten/c330ae/device.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
-
-# 2by2 stuff
-CUSTOM_PROCESSOR_INFO := Qualcomm Snapdragon 439
-TARGET_SETUPWIZARD_NO_ANIMATION := true
+# Inherit some common PixelOS stuff.
+$(call inherit-product, vendor/custom/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := c330ae
-PRODUCT_NAME := lineage_c330ae
+PRODUCT_NAME := custom_c330ae
 PRODUCT_BRAND := Rakuten
 PRODUCT_MODEL := C330
 PRODUCT_MANUFACTURER := TINNO
