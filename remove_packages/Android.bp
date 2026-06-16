@@ -1,0 +1,26 @@
+//
+// Copyright (C) 2025 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_prebuilt_binary {
+    name: "RemovePackages",
+    overrides: [
+        "CalculatorGooglePrebuilt_85006267",
+        "CalendarGooglePrebuilt",
+        "FilesPrebuilt",
+        "GoogleContacts",
+        "GoogleTTS",
+        "Maps",
+        "Photos",
+        "PrebuiltDeskClockGoogle_76007351",
+        "PrebuiltGmail",
+        "talkback",
+    ],
+    strip: {
+        none: true,
+    },
+    srcs: ["RemovePackages"],
+    check_elf_files: false,
+}
