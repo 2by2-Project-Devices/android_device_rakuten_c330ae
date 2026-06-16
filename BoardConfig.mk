@@ -150,6 +150,7 @@ BOARD_TINNO_DYNAMIC_PARTITIONS_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_SIZE
 BOARD_TINNO_DYNAMIC_PARTITIONS_PARTITION_LIST := $(ALL_PARTITIONS)
 
 # Partitions - reserved size
+ifneq ($(WITH_GMS),true)
 $(foreach p, $(call to-upper, $(SSI_PARTITIONS)), \
     $(eval BOARD_$(p)IMAGE_EXTFS_INODE_COUNT := -1))
 $(foreach p, $(call to-upper, $(TREBLE_PARTITIONS)), \
@@ -161,6 +162,7 @@ $(foreach p, $(call to-upper, $(TREBLE_PARTITIONS)), \
     $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 41943040)) # 40 MB
 
 BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 838860800
+endif
 
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
