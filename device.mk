@@ -361,6 +361,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     RegulatoryInfoOverlay
 
+# Remove Unwanted Packages
+PRODUCT_PACKAGES += \
+    RemovePackages
+
 # RIL
 PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.2.vendor \
