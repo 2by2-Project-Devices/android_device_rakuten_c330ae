@@ -26,9 +26,9 @@ $(call inherit-product, device/rakuten/c330ae/device.mk)
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# 2by2 stuff
-CUSTOM_PROCESSOR_INFO := Qualcomm Snapdragon 439
-TARGET_SETUPWIZARD_NO_ANIMATION := true
+# WitAqua stuff
+WITAQUA_MAINTAINER := kailua
+WITAQUA_PROCESSOR_INFO := Qualcomm Snapdragon 439
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := c330ae
