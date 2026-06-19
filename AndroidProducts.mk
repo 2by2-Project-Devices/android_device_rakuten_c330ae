@@ -14,4 +14,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_c330ae.mk
+    $(LOCAL_DIR)/aosp_c330ae.mk
