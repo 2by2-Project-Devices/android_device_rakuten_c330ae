@@ -65,6 +65,9 @@ TARGET_KERNEL_VERSION := 4.19
 TARGET_KERNEL_ADDITIONAL_FLAGS := \
     DTC=$(shell pwd)/prebuilts/misc/$(HOST_OS)-x86/dtc/dtc
 
+# Kernel - Prebuilt
+-include $(DEVICE_PATH)-kernel/BoardConfigKernel.mk
+
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
