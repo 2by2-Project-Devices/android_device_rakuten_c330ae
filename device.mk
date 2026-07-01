@@ -252,6 +252,9 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
+# ION
+$(call soong_config_set_bool,libion,legacy_impl,true)
+
 # IPA Manager
 PRODUCT_PACKAGES += \
     ipacm \
