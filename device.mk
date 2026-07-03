@@ -168,6 +168,8 @@ PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor \
     libtinyxml
 
+$(call soong_config_set_bool,libui,legacy_gralloc,true)
+
 PRODUCT_PACKAGES += \
     lineage.frameworks.displayservice@1.0.vendor
 
