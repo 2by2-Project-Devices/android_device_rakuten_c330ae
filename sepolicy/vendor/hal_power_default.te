@@ -6,3 +6,5 @@ allow hal_power_default proc_touchpanel:file rw_file_perms;
 
 # Allow writing to fts gesture nodes
 allow hal_power_default sysfs_gesture:file rw_file_perms;
+
+allow hal_power_default vendor_hal_vnddisplayconfig_service:service_manager find;

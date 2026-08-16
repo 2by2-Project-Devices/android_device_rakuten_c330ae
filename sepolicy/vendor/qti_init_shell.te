@@ -8,3 +8,5 @@ allow qti_init_shell proc_page_cluster:file { open write };
 allow qti_init_shell sysfs:file { write setattr };
 
 allow qti_init_shell system_data_file:file getattr;
+
+r_dir_file(qti_init_shell, proc_boot_reason)

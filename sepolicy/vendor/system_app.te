@@ -24,3 +24,5 @@ allow system_app {
 
 # zram
 r_dir_file(system_app sysfs_zram)
+
+binder_call(system_app, hal_rcsservice)
