@@ -1,0 +1,1 @@
+allow vendor_qti_poweroffalarm_app cgroup:file rw_file_perms;
