@@ -169,7 +169,7 @@ PRODUCT_PACKAGES += \
     libtinyxml
 
 PRODUCT_PACKAGES += \
-    android.frameworks.displayservice@1.0.vendor
+    lineage.frameworks.displayservice@1.0.vendor
 
 PRODUCT_PACKAGES += \
     libdisplayconfig \
@@ -177,6 +177,8 @@ PRODUCT_PACKAGES += \
     libqdMetaData \
     vendor.display.config@1.11.vendor \
     vendor.display.config@2.0.vendor
+
+$(call soong_config_set_bool,surfaceflinger,register_displayservice,true)
 
 # DRM
 PRODUCT_PACKAGES += \
