@@ -112,7 +112,7 @@ persist.vendor.ims.disableSigHandler=1
 persist.vendor.ims.disableQXDMLogs=1
 
 # Recovery
-persist.vendor.recovery_update=false
+persist.vendor.recovery_update=true
 
 # ScalarConfig
 vendor.display.disable_scaler=1
